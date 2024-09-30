@@ -55,4 +55,21 @@ function objectIsTest() {
     console.log(Object.is(0,-0) == (0 === -0)) // false == true
     console.log(Object.is([],[]) == ([] === [])) // false == false
 }
-[tryCatchOrderTest,falsyTruthyTest,emptyArrayGuantletTest,objectIsTest].forEach(func => printTest(func))
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#redeclarations
+function varRedclarationTest() {
+    var a = 1
+    {
+        console.log(a)
+        var a = 2
+    }
+}
+
+function hoistingTest() {
+    var a = 1
+    {
+        console.log(a)
+        let a = 2
+    }
+}
+[tryCatchOrderTest,falsyTruthyTest,emptyArrayGuantletTest,objectIsTest,varRedclarationTest,hoistingTest].forEach(func => printTest(func))
